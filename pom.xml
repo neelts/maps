@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.tenderowls.opensource</groupId>
+    <artifactId>owlmaps</artifactId>
+    <packaging>swc</packaging>
+    <version>1.0.0-ALPHA5</version>
+
+    <properties>
+        <flexmojos.version>5.0-beta</flexmojos.version>
+        <flex.sdk.version>4.6.b.23201</flex.sdk.version>
+    </properties>
+
+    <!-- GitHub Software Configuration Management -->
+    <scm>
+        <url>https://github.com/tenderowls/owlmaps</url>
+        <connection>scm:git:ssh://git@github.com:tenderowls/owlmaps.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:tenderowls/owlmaps.git</developerConnection>
+    </scm>
+
+    <build>
+        <sourceDirectory>src/main/flex</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>net.flexmojos.oss</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>${flexmojos.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <debug>false</debug>
+                    <storepass/>
+                    <skipTests>true</skipTests>
+                    <skipTest>true</skipTest>
+                    <verboseStacktraces>true</verboseStacktraces>
+                    <!--
+                    NB! SWC is compiled in debug mode with verbose stacktraces
+                    for better development process.
+                    It's okay and will not affect application performance
+                    UNLESS you are using this library as RSL.
+                    -->
+                    <keepAs3Metadatas>
+                        <!-- potentially for Apparat. probably useless -->
+                        <keepAs3Metadata>Abstract</keepAs3Metadata>
+                    </keepAs3Metadatas>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.adobe.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>${flex.sdk.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>${flexmojos.version}</version>
+                <reportSets>
+                    <reportSet>
+                        <id>flex-reports</id>
+                        <reports>
+                            <report>asdoc-report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>playerglobal</artifactId>
+            <version>${flex.sdk.version}</version>
+            <classifier>11.1</classifier>
+            <type>swc</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>framework</artifactId>
+            <version>${flex.sdk.version}</version>
+            <classifier>configs</classifier>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.gamua.starling</groupId>
+            <artifactId>starling-framework</artifactId>
+            <version>1.4.1</version>
+            <type>swc</type>
+        </dependency>
+        <dependency>
+            <groupId>org.gestouch</groupId>
+            <artifactId>gestouch</artifactId>
+            <type>swc</type>
+            <version>0.4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.inreflected</groupId>
+            <artifactId>touch-scrolling</artifactId>
+            <type>swc</type>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osflash</groupId>
+            <artifactId>as3-signals</artifactId>
+            <version>0.9-BETA</version>
+            <type>swc</type>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+        </repository>
+        <repository>
+            <id>yelbota-dropbox-repo</id>
+            <url>http://dl.dropbox.com/u/36020926/maven/</url>
+        </repository>
+        <repository>
+            <id>starling-repository</id>
+            <url>http://repository-trylogic.forge.cloudbees.com/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>flex-mojos-plugin-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <developers>
+        <developer>
+            <name>Alexander Morozov</name>
+            <email>morozov@tenderowls.com</email>
+        </developer>
+        <developer>
+            <name>Aleksey Fomkin</name>
+            <email>fomkin@tenderowls.com</email>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>fomkin-dropbox</id>
+            <url>file:///Users/fomkin/Dropbox/Public/maven</url>
+        </repository>
+    </distributionManagement>
+
+</project>

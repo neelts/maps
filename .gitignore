@@ -1,0 +1,9 @@
+.DS_Store
+.idea
+*.iml
+out
+target
+test/Test-app.xml
+test/html-template/
+test/src/Test.as
+
