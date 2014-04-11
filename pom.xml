@@ -16,9 +16,9 @@
 
     <!-- GitHub Software Configuration Management -->
     <scm>
-        <url>https://github.com/tenderowls/owlmaps</url>
-        <connection>scm:git:ssh://git@github.com:tenderowls/owlmaps.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:tenderowls/owlmaps.git</developerConnection>
+        <url>https://github.com/neelts/maps</url>
+        <connection>scm:git:ssh://git@github.com:neelts/maps.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:neelts/maps.git</developerConnection>
     </scm>
 
     <build>
