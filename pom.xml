@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tenderowls.opensource</groupId>
-    <artifactId>owlmaps</artifactId>
+    <groupId>ru.igralliance.opensource</groupId>
+    <artifactId>maps</artifactId>
     <packaging>swc</packaging>
     <version>1.0.0-ALPHA5</version>
 
@@ -162,6 +162,10 @@
         <developer>
             <name>Aleksey Fomkin</name>
             <email>fomkin@tenderowls.com</email>
+        </developer>
+        <developer>
+            <name>Neil Akhmetov</name>
+            <email>neeelts@gmail.com</email>
         </developer>
     </developers>
 
